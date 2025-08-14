@@ -96,7 +96,7 @@ import {
       <h2 class="text-6xl mb-12">Quick Guide for Applicants</h2>
       <h3>What will you find here?</h3>
       <p class="mt-4 mb-12">
-        Each <a href="/scenarios" target="_blank">scenario</a> is documented in its own page with contextual information, links to suggested datasets and tips on how to best approach the scenario. The <a href="#faq">FAQ</a> is also accessible from this website and will be updated throughout the process. Lastly, you are also able to <a href="#submit">submit your proposal</a> from this website.  
+        Each <a href="/scenarios" target="_blank">scenario</a> is documented in its own page with contextual information, links to available tools and resources, and tips on how to best approach the scenario. The <a href="#faq">FAQ</a> is also accessible from this website and will be updated throughout the process. Lastly, you are also able to <a href="#submit">submit your proposal</a> from this website.  
       </p>
 
       <h3>Things to keep in mind</h3>
@@ -109,31 +109,46 @@ import {
               <strong>We do not expect perfect solutions:</strong> the focus of this event is on prototyping ideas rather than creating perfect tools. If your idea is pre-selected, you will have the opportunity to refine your solution.
             </li>
             <li>
-              <strong>Work in teams!:</strong> it can be challenging to address all aspects of the scenario alone: someone with data modeling skills may not have design skills and vice versa. If you can come up with a good proposal but lack a team to prototype it, we can help.
+              <strong>Work in teams!:</strong> it can be challenging to address all aspects of the scenario alone: someone with data modeling skills may not have design skills and vice versa. Your mission is to come up with a good proposal, our mission is to provide you with resources and ideas how to prototype it best.
             </li>
           </ul>
         </div>
 
-        <h3>Selection criteria</h3>
+        <h3 id="selection-criteria">Selection criteria</h3>
         <div class="mt-4 mb-12">
           <p class="mb-6">
              Applications will be reviewed by a panel of experts from the organizing partners. The selection will be based on the following criteria:
           </p>
           <ul>
             <li>
-              <strong>Relevance (20%):</strong> How well the proposal addresses one of the specified scenarios and the needs of communities in the target region. 
+              <strong>Relevance to thematic areas</strong>
+              <br>This criterion evaluates how well the proposed idea aligns with the core themes and goals of the Hackathon. Specifically, it assesses whether the idea clearly addresses one or more of the defined thematic areas—such as disinformation and fact-checking, digital security and rapid response, secure organizing and rights reporting, or youth-led civic engagement. In addition, the idea should be contextually grounded in the realities and challenges of the civic space, demonstrating a clear understanding of the problem it seeks to address.<br>
+              <b>Score: 1-20 from unrelated to highly aligned</b>
             </li> 
             <li>
-              <strong>Impact (20%):</strong> The potential for the solution to expand civic space and promote inclusive democracy. 
+              <strong> Clarity and feasibility of the idea</strong>
+              <br>This criterion assesses the clarity and feasibility of the proposed idea. It focuses on how clearly the concept is presented and whether it is logically structured. Priority is given to teams that demonstrate a clear vision of how they intend to implement their idea. The evaluation also considers whether the proposed solution can realistically be prototyped or tested within the available project timeframe and resources, and whether the outlined steps toward implementation are practical and achievable.<br>
+              <b>Score 1 - 20: from vague or unrealistic to highly feasible and actionable</b>
+
             </li>
             <li>
-              <strong>Feasibility (20%):</strong> The clarity and realism of the proposed plan. Can the project be prototyped at the hackathon and piloted within the grant period? 
+              <strong>Civic impact and innovation potential</strong>
+              <br>This criterion evaluates the civic impact and innovation potential of the proposed idea. It considers the originality of the concept and its ability to offer a fresh or creative approach to addressing civic challenges. The idea should either introduce something entirely new or significantly improve an existing solution that currently has limitations—particularly within the countries of focus. Strong proposals will demonstrate potential to generate meaningful change, enhance democratic participation, and possibly be scaled or replicated in other contexts.<br>
+              <b>Score 1–25: from low-impact/standard to innovative and high-impact</b>
             </li>
             <li>
-              <strong>Team Capacity (20%):</strong> The applicant team's skills, experience, and motivation to successfully complete the project.
+              <strong>Team capacity and motivation</strong>
+              <br>This criterion assesses the team's capacity and motivation to successfully implement their concept beyond the hackathon. It considers whether the team members bring relevant skills, experiences, and a strong sense of motivation, as well as a demonstrated commitment to fully participate in both the hackathon and the subsequent granting phase. Priority is given to teams composed of members with diverse yet complementary backgrounds and expertise that are essential for the effective execution of the proposed idea. The presence of diverse voices and lived experiences within the team is also valued, as it can enhance the depth and relevance of the project.<br>
+              <b>Score 1–15: from unclear or weak capacity to strong and committed team</b>
+            <li>
+              <strong>Inclusiveness and values alignment</strong>
+              <br>This criterion evaluates the extent to which the application reflects an inclusive and rights-based approach. It looks for a clear commitment to principles such as equality, participation, and respect for human rights, ensuring that the proposed idea considers marginalized or underrepresented communities. Additionally, the concept should align with the core values of CIVICUS, Metamorphosis Foundation, and the Civic Literacy Initiative — including transparency, civic freedom, accountability, and social justice. Projects that embody these values in both their design and intended impact will be rated more favorably.<br>
+              <b>Score 1–10: from not demonstrated to clearly embedded</b>
             </li>
             <li>
-              <strong>Legibility (20%): </strong> The proposal is well articulated and argued, and follows a clear logic.
+              <strong>Geographic and Demographic Balance</strong>
+              <br>This criterion considers how the application contributes to geographic and demographic balance within the overall cohort of selected teams. It evaluates whether the applicant comes from an underrepresented country, region, or community, and whether their inclusion enhances diversity in terms of geography, gender, age, and thematic focus. Priority is given to applications that help ensure a broad and inclusive representation across the participating countries and civic issues, aligning with the initiative’s goal of fostering equity and diverse civic engagement.<br>
+              <b>Score 1–10: from overrepresented or imbalanced to strongly contributing to diversity</b>
             </li>
           </ul>
         </div>
@@ -303,7 +318,7 @@ import {
               </AccordionItem>
               <AccordionItem title="Can I apply as a group or only as an individual?">
                 <p>
-                  Only applications from registered civic organisations or informal groups will be considered. This means that a successful proposal will include at least 2 team members committed to work on it.
+                  Only applications from registered civic organisations or informal groups will be considered. This means that a successful proposal will include at least 3 team members committed to work on it.
                 </p>
               </AccordionItem>
               <AccordionItem title="How can I apply?">
@@ -321,24 +336,29 @@ import {
                 </p>
               </AccordionItem>
               <AccordionItem title="How will the applications be reviewed? ">
+                <ul>
+                  <li>
+                    <strong>Relevance to thematic areas:</strong> 1-20 from unrelated to highly aligned
+                  </li> 
+                  <li>
+                    <strong> Clarity and feasibility of the idea:</strong> 1-20 from vague or unrealistic to highly feasible and actionable
+
+                  </li>
+                  <li>
+                    <strong>Civic impact and innovation potential:</strong> 1–25 from low-impact/standard to innovative and high-impact
+                  </li>
+                  <li>
+                    <strong>Team capacity and motivation:</strong> 1–15 from unclear or weak capacity to strong and committed team
+                  <li>
+                    <strong>Inclusiveness and values alignment:</strong> 1–10 from not demonstrated to clearly embedded
+                  </li>
+                  <li>
+                    <strong>Geographic and Demographic Balance:</strong> 1–10 from overrepresented or imbalanced to strongly contributing to diversity
+                  </li>
+                </ul>
+                <br>
                 <p>
-                  <ul>
-                    <li>
-                      <strong>Relevance (20%):</strong> How well the proposal addresses one of the specified scenarios and the needs of communities in the target region. 
-                    </li> 
-                    <li>
-                      <strong>Impact (20%):</strong> The potential for the solution to expand civic space and promote inclusive democracy. 
-                    </li>
-                    <li>
-                      <strong>Feasibility (20%):</strong> The clarity and realism of the proposed plan. Can the project be prototyped at the hackathon and piloted within the grant period? 
-                    </li>
-                    <li>
-                      <strong>Team Capacity (20%):</strong> The applicant team's skills, experience, and motivation to successfully complete the project.
-                    </li>
-                    <li>
-                      <strong>Legibility (20%): </strong> The proposal is well articulated and argued, and follows a clear logic.
-                    </li>
-                  </ul>
+                  See the <a href="#selection-criteria"><strong>Selection criteria</strong></a> for more information.
                 </p>
               </AccordionItem>
               <AccordionItem title="Can I submit more than one application?">
@@ -348,7 +368,7 @@ import {
               </AccordionItem>
               <AccordionItem title="Can I submit my application in a language other than English?">
                 <p>
-                  No, all information provided must be in English.
+                  All information provided in the application form must be in English. However, we encourage developing the prototypes in your native languages. 
                 </p>
               </AccordionItem>
               <AccordionItem title="Can I use AI to translate my documents to English?">
