@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url'
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
-  site: 'https:/kompyuter.org',
+  site: 'https://ddihackathon.org',
   integrations: [mdx(), icon(), compress()],
   vite: {
     css: {
