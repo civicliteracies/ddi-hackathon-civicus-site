@@ -1,0 +1,467 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import Hero from '@components/Hero.astro'
+import Feature from '@components/Feature.astro'
+import Counter from '@components/Counter.astro'
+import ContentMedia from '@components/ContentMedia.astro'
+import ExternalLink from '@components/ExternalLink.astro'
+import { Image } from 'astro:assets'
+import CallToAction from '@components/CallToAction.astro'
+import {
+  Accordion,
+  AccordionItem,
+  Avatar,
+  AvatarGroup,
+  Badge,
+  Breadcrumbs,
+  BreadcrumbsItem,
+  Card,
+  DarkMode,
+  Media,
+  Modal,
+  Notification,
+  Pagination,
+  Tabs,
+  TabsList,
+  TabsTab,
+  TabsPanel,
+  Video,
+} from 'accessible-astro-components'
+
+---
+<Counter/>
+
+<DefaultLayout title="Home">
+  <Hero />
+  <section class="mb-16 pt-16" id="about">
+    <div class="container">
+      <h2 class="text-6xl mb-12">About</h2>
+      <Tabs>
+          <TabsList>
+            <TabsTab id="tab-1" controls="panel-1" selected>What is it?</TabsTab>
+            <TabsTab id="tab-2" controls="panel-2">Who is it for?</TabsTab>
+            <TabsTab id="tab-3" controls="panel-3">What's in it for you?</TabsTab>
+            <TabsTab id="tab-4" controls="panel-4">How do I join?</TabsTab>
+          </TabsList>
+
+          <TabsPanel id="panel-1" labelledby="tab-1" selected>
+            <h3>What is it?</h3>
+            <p>
+              We're excited to launch the Open Call for Applications for the <strong>Digital Democracy Hackathon</strong>!
+              <br><br>
+              <a href="https://metamorphosis.org.mk/" target="_blank">Metamorphosis Foundation</a> and the <a href="https://civicliteraci.es/" target="_blank">Civic Literacy Initiative</a> are partnering with <a href="https://www.civicus.org/" target="_blank">CIVICUS</a> to host this hackathon in our region, joining a global series of hackathons organized as part of the <a href="https://digitaldemocracyinitiative.net/" target="_blank">Digital Democracy Initiative (DDI)</a>, a worldwide effort to support civil society in strengthening civic space and promoting inclusive democracy.
+            </p>
+          </TabsPanel>
+          <TabsPanel id="panel-2" labelledby="tab-2">
+            <h3>Who is it for?</h3>
+            <p>
+              Are you part of a civil society organization or an activist team working on digital innovation for civic participation?
+              <br><br>
+              Are you based in one of the following countries in Eastern Europe and Central Asia: Albania, Armenia, Bosnia and Herzegovina, Georgia, Kazakhstan, Kyrgyzstan, Kosovo, Moldova, Montenegro, North Macedonia, Serbia, Ukraine or Turkey?
+              <br><br>
+              <strong>This is your chance to turn your idea into action!</strong>
+            </p>
+          </TabsPanel>
+          <TabsPanel id="panel-3" labelledby="tab-3">
+            <h3>What's in it for you?</h3>
+              <ul>
+                <li>Participate in a 5-day scenario-driven hackathon in Bangkok (1-5 November, 2025)</li>
+                <li>Receive tailored mentorship and support</li>
+                <li>Be awarded a subgrant funding to develop your prototype</li>
+                <li>Join a vibrant regional network of change makers</li>
+              </ul>
+          </TabsPanel>
+          <TabsPanel id="panel-4" labelledby="tab-4">
+            <h3>How do I join?</h3>
+            <ul>
+              <li><strong>Apply by:</strong> 22nd of September 2025</li>
+              <li><strong>Info session:</strong> 12th of September 2025</li>
+              <li>See the <a href="#applicant-guide">applicant guide</a>, <a href="#scenarios">scenarios</a> and <a href="#submit">application form</a>.</li>
+            </ul>
+          </TabsPanel>
+        </Tabs>
+
+        <p>
+          <br><br>
+          You still have questions and doubts? Write to us before 16th of September at <a href="mailto:ddi-hackathon-2025@civicliteraci.es">ddi-hackathon-2025@civicliteraci.es</a>.
+          <br><br>
+          <strong>Let’s shape a freer, more inclusive digital civic space — together.</strong>
+        </p>
+    </div>
+  </section>
+
+
+  <section class="mb-16 pt-16" id="applicant-guide">
+    <div class="container">
+      <h2 class="text-6xl mb-12">Quick Guide for Applicants</h2>
+      <h3>What will you find here?</h3>
+      <p class="mt-4 mb-12">
+        Each <a href="/scenarios" target="_blank">scenario</a> is documented in its own page with contextual information, links to suggested datasets and tips on how to best approach the scenario. The <a href="#faq">FAQ</a> is also accessible from this website and will be updated throughout the process. Lastly, you are also able to <a href="#submit">submit your proposal</a> from this website.  
+      </p>
+
+      <h3>Things to keep in mind</h3>
+        <div class="mt-4 mb-12">
+          <ul>
+            <li>
+              <strong>More than a hackathon:</strong> beyond just being a hackathon, this is also a design challenge. More than the technical sophistication of the proposal, we are looking for proposals that match the chosen scenario by taking into account the users and beneficiaries of your proposed solution.
+            </li> 
+            <li>
+              <strong>We do not expect perfect solutions:</strong> the focus of this event is on prototyping ideas rather than creating perfect tools. If your idea is pre-selected, you will have the opportunity to refine your solution.
+            </li>
+            <li>
+              <strong>Work in teams!:</strong> it can be challenging to address all aspects of the scenario alone: someone with data modeling skills may not have design skills and vice versa. If you can come up with a good proposal but lack a team to prototype it, we can help.
+            </li>
+          </ul>
+        </div>
+
+        <h3>Selection criteria</h3>
+        <div class="mt-4 mb-12">
+          <p class="mb-6">
+             Applications will be reviewed by a panel of experts from the organizing partners. The selection will be based on the following criteria:
+          </p>
+          <ul>
+            <li>
+              <strong>Relevance (20%):</strong> How well the proposal addresses one of the specified scenarios and the needs of communities in the target region. 
+            </li> 
+            <li>
+              <strong>Impact (20%):</strong> The potential for the solution to expand civic space and promote inclusive democracy. 
+            </li>
+            <li>
+              <strong>Feasibility (20%):</strong> The clarity and realism of the proposed plan. Can the project be prototyped at the hackathon and piloted within the grant period? 
+            </li>
+            <li>
+              <strong>Team Capacity (20%):</strong> The applicant team's skills, experience, and motivation to successfully complete the project.
+            </li>
+            <li>
+              <strong>Legibility (20%): </strong> The proposal is well articulated and argued, and follows a clear logic.
+            </li>
+          </ul>
+        </div>
+
+        <h3>If you have any questions</h3>
+        <div class="mt-4">
+          <ul>
+            <li>
+              Send an email to <strong><a href="mailto:ddi-hackathon-2025@civicliteraci.es">ddi-hackathon-2025@civicliteraci.es</a></strong>
+            </li> 
+            <li>
+              Sign up and attend the <strong><a href="#" target="_blank">Info session</a></strong> where interested participants can field their questions about the open call.
+            </li>
+          </ul>
+        </div>
+    </div>
+
+    
+  </section>
+
+
+  <section class="mb-36 mt-36 pt-12" id="scenarios">
+    <div class="container">
+      <h2 class="text-6xl mb-12">Scenarios</h2>
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2">
+        <Feature icon="lucide:badge-check" title="Cross-Border Fact-Check Assistance">
+          <p>
+            A tool to help fact-checkers quickly find keywords, context, and sources when researching a cross-border story.
+            <br><br>
+            <a href="/scenarios/scenario-01">Learn more</a>
+          </p>
+        </Feature>
+        <!-- <Feature icon="lucide:file-chart-column-increasing" title="From Text to Visual Dissemination">
+          <p>
+            A tool to help fact-checkers quickly find keywords, context, and sources when researching a cross-border story.
+            <br><br>
+            <a href="/scenarios/scenario-02">Learn more</a>
+          </p>
+        </Feature> -->
+        <Feature icon="lucide:heart" title="Better social media formats">
+          <p>
+            A tool that provides a communications strategy on how to respond when a CSO faces a coordinated disinformation attack.
+            <br><br>
+            <a href="/scenarios/scenario-02">Learn more</a>
+          </p>
+        </Feature>
+        <!-- <Feature icon="lucide:heart-handshake" title="Community Help Desk / Mutual Aid">
+          <p>
+            A service that connects CSOs with community experts for help with digital skills, software, hardware, and navigating digital risks.
+            <br><br>
+            <a href="/scenarios/scenario-05">Learn more</a>
+          </p>
+        </Feature> -->
+        <!-- <Feature icon="lucide:lightbulb" title="Trending Topic Idea Generator">
+          <p>
+            A tool to help fact-checkers quickly find keywords, context, and sources when researching a cross-border story.
+            <br><br>
+            <a href="/scenarios/scenario-06">Learn more</a>
+          </p>
+        </Feature>
+        -->
+        <Feature icon="lucide:message-square-warning" title="Communication Strategy for Disinfo Attacks">
+          <p>
+            A tool that provides a communications strategy on how to respond when a CSO faces a coordinated disinformation attack.
+            <br><br>
+            <a href="/scenarios/scenario-03">Learn more</a>
+          </p>
+        </Feature>
+        <!-- <Feature icon="lucide:scan-heart" title="Mental Health & Wellbeing Support System">
+          <p>
+            A group-level (organization or community) resource to assist mental health and wellbeing support systems during a cyber harassment event.
+            <br><br>
+            <a href="/scenarios/scenario-04">Learn more</a>
+          </p>
+        </Feature> -->
+        <Feature icon="lucide:lightbulb" title="Trending Topic Idea Generator">
+          <p>
+            A tool that helps youth-led campaigns connect trending topics on social media with their own priority topics to create relevant content.
+            <br><br>
+            <a href="/scenarios/scenario-04">Learn more</a>
+          </p>
+        </Feature>
+        <Feature icon="lucide:calendar-check-2" title='Campaign & Event Planning Guidance'>
+          <p>
+            A project management tool or checklist to guide young activists through the process of planning and facilitating a successful event.
+            <br><br>
+            <a href="/scenarios/scenario-05">Learn more</a>
+          </p>
+        </Feature>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-36 mt-36 pt-12" id="faq">
+    <div class="container">
+      <h2 class="text-6xl mb-12">FAQ</h2>
+      <Tabs>
+          <TabsList>
+            <TabsTab id="faq-tab-1" controls="faq-panel-1" selected>General</TabsTab>
+            <TabsTab id="faq-tab-2" controls="faq-panel-2">The program</TabsTab>
+            <TabsTab id="faq-tab-3" controls="faq-panel-3">Eligibility</TabsTab>
+            <TabsTab id="faq-tab-4" controls="faq-panel-4">Submission</TabsTab>
+          </TabsList>
+
+          <TabsPanel id="faq-panel-1" labelledby="faq-tab-1" selected>
+            <Accordion>
+              <AccordionItem title="Why is this hackathon being organized?">
+                <p>
+                  The CIVICUS Digital Democracy Initiative (DDI) supports local digital innovations that expand civic space. However, many civil society organizations (CSOs) in Eastern Europe and Central Asia face challenges in developing and deploying such tools. This hackathon, implemented by the Metamorphosis Foundation and Civic Literacy Initiative, aims to:<br><br>
+                  <ul>
+                    <li>Address real-world challenges CSOs face in areas like fact-checking, digital security, and youth campaigning.</li>
+                    <li>Build the capacity of local actors to create and pilot their own solutions.</li>
+                    <li>Provide funding and mentorship to turn promising ideas into sustainable projects.</li>
+                    <li>Foster a regional network of civic tech innovators.</li>
+                  </ul>
+                </p>
+              </AccordionItem>
+              <AccordionItem title="Who are the organizers?">
+                <ul>
+                  <li>The <strong>Metamorphosis Foundation</strong> is the lead partner, responsible for overall project coordination and financial administration.</li>
+                  <li>The <strong>Civic Literacy Initiative (CLi)</strong> is the lead contractor, responsible for designing the hackathon content and providing mentorship to the teams.</li>
+                  <li>The program is funded by the <strong>CIVICUS Digital Democracy Initiative (DDI)</strong>.</li>
+                </ul>
+              </AccordionItem>
+            </Accordion>
+          </TabsPanel>
+          <TabsPanel id="faq-panel-2" labelledby="faq-tab-2">
+            <Accordion>
+              <AccordionItem title="What do the selected teams receive?">
+                <p>
+                  The five selected teams will receive a comprehensive support package to bring their ideas to life. This includes:<br><br>
+                  <ul>
+                    <li>A <strong>$8,000 sub-grant</strong> to fund the development and piloting of their solution.</li>
+                    <li>An <strong=all-expenses-paid trip</strong> for team members to participate in the in-person hackathon in Bangkok, Thailand (1-5 November 2025).</li>
+                    <li><strong>Expert mentorship</strong> before, during, and after the hackathon to provide technical, design, and strategic guidance.</li>
+                    <li>An opportunity to join a <strong>vibrant regional network</strong> of changemakers working on similar issues.</li>
+                  </ul> 
+                </p>
+              </AccordionItem>
+              <AccordionItem title="What are the hackathon's thematic areas?">
+                <p>
+                  Applicants must propose a solution that addresses one of the following four thematic areas. 
+                  <br><br>
+                  <ul>
+                    <li>Community Fact-Checking</li>
+                    <li>Secure Organizing Methods</li>
+                    <li>Digital Security</li>
+                    <li>Youth-Led Campaigning</li>
+                  </ul>
+                  <br>
+                  You can find detailed descriptions and problem statements for each on the <a href="/scenarios" target="_blank"><strong>Scenarios</strong></a> page of our website.
+                </p>
+              </AccordionItem>
+              <AccordionItem title="What is the expected outcome of the projects?">
+                <p>
+                  The goal of the in-person hackathon is for each team to develop a <strong>working prototype</strong> of their solution. This could be a clickable wireframe, a piece of code, a detailed process map, or another tangible model. The  five participating teams will be expected to develop this prototype further after the hackathon, transforming it from a prototype to a <strong>pilot initiative</strong> that is tested with a real user community.
+                </p>
+              </AccordionItem>
+            </Accordion>
+          </TabsPanel>
+          <TabsPanel id="faq-panel-3" labelledby="faq-tab-3">
+            <Accordion>
+              <AccordionItem title="Who is eligible to apply?">
+                <p>
+                  This call is for civil society organizations and activist teams based in one of the seven target countries: <strong>Albania, Bosnia and Herzegovina, Kosovo, Moldova, Montenegro, North Macedonia, and Turkey</strong>. We welcome teams with diverse skills, including developers, designers, researchers, project managers, and advocates who are passionate about using technology to strengthen democracy.
+                </p>
+              </AccordionItem>
+              <AccordionItem title="Can I apply as a group or only as an individual?">
+                <p>
+                  Only applications from registered civic organisations or informal groups will be considered. This means that a successful proposal will include at least 2 team members committed to work on it.
+                </p>
+              </AccordionItem>
+              <AccordionItem title="How can I apply?">
+                <p>
+                  Applicants should apply online via an online form available on the open call page. Applicants will be asked to fill the scenario pitch with their initial solution proposal but also a series of questions about their eligibility. Only complete applications submitted before the deadline will be considered for review.<br><br>Before applying, we recommend that you read this applicants' guide website and review the <a href="#" target="_blank">Application Form</a> 
+                </p>
+              </AccordionItem>
+            </Accordion>
+          </TabsPanel>
+          <TabsPanel id="faq-panel-4" labelledby="faq-tab-4">
+            <Accordion>
+              <AccordionItem title="How many teams will be selected?">
+                <p>
+                  One candidate proposal will be selected for each scenario, for a total of 5 teams.<br><br>All of the selected teams will be expected to join the event in Bangkok.
+                </p>
+              </AccordionItem>
+              <AccordionItem title="How will the applications be reviewed? ">
+                <p>
+                  <ul>
+                    <li>
+                      <strong>Relevance (20%):</strong> How well the proposal addresses one of the specified scenarios and the needs of communities in the target region. 
+                    </li> 
+                    <li>
+                      <strong>Impact (20%):</strong> The potential for the solution to expand civic space and promote inclusive democracy. 
+                    </li>
+                    <li>
+                      <strong>Feasibility (20%):</strong> The clarity and realism of the proposed plan. Can the project be prototyped at the hackathon and piloted within the grant period? 
+                    </li>
+                    <li>
+                      <strong>Team Capacity (20%):</strong> The applicant team's skills, experience, and motivation to successfully complete the project.
+                    </li>
+                    <li>
+                      <strong>Legibility (20%): </strong> The proposal is well articulated and argued, and follows a clear logic.
+                    </li>
+                  </ul>
+                </p>
+              </AccordionItem>
+              <AccordionItem title="Can I submit more than one application?">
+                <p>
+                  Yes, you can submit one proposal for each scenario.
+                </p>
+              </AccordionItem>
+              <AccordionItem title="Can I submit my application in a language other than English?">
+                <p>
+                  No, all information provided must be in English.
+                </p>
+              </AccordionItem>
+              <AccordionItem title="Can I use AI to translate my documents to English?">
+                <p>
+                  Manual or automated translations are acceptable, as long as the resulting content is legible. Be mindful that AI translations can sometimes change the meaning of your text, or hallucinate words if it does not understand some of the technical/context-specific words or acronyms that you have submitted for translation. Reviewers will not try to guess the meaning of your proposal if some of its parts do not make sense.
+                </p>
+              </AccordionItem>
+              <AccordionItem title="Can I change my application once it is submitted?">
+                <p>
+                  Once submitted, you cannot change your application because we start immediately with the review.
+                </p>
+              </AccordionItem>
+              <AccordionItem title="When is the submission deadline?">
+                <p>
+                  The open call will be open until <strong>22 September 2025</strong>.<br><br>
+                  The complete timeline is <a href="#timeline">here</a>.
+                </p>
+              </AccordionItem>
+            </Accordion>
+          </TabsPanel>
+        </Tabs>
+        <br><br>
+        <a class="button" href="mailto:ddi-hackathon-2025@civicliteraci.es">Contact support team</a>
+    </div>
+
+    <!-- <div class="container grid grid-cols-1 gap-12 md:grid-cols-2">
+      <div class="flex flex-col items-start gap-4">
+        <h2 class="text-6xl mb-12">FAQ</h2>
+        <p class="text-2xl mb-12">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <a class="button" href="mailto:ddi-hackathon-2025@civicliteraci.es">Contact support team</a>
+      </div>
+      <div class="space-content">
+        <Accordion>
+          <AccordionItem name="exclusive" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit?">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit?">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit?">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit?">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit?">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div> -->
+  </section>
+  <section class="mb-36 mt-36 pt-12" id="timeline">
+    <div class="space-content container">
+      <h2 class="text-6xl mb-12">Timeline</h2>
+      <ul>
+        <li><b>Call is open:</b> 15 August 2025</li>
+        <li><b>Info session:</b> 12 September 2025</li>
+        <li><b>Deadline of applications:</b> 22 September 2025</li>
+        <li><b>Final selection:</b> 1 October 2025</li>
+        <li><b>Inception meeting with winners:</b> 1-3 October 2025</li>
+        <li><b>Hackathon in Bangkok:</b> 1-5 November 2025</li>
+        <li><b>Granting and mentoring support:</b> October 2025 to February 2026</li>
+      </ul>
+  </section>
+
+  <section class="mb-36 mt-36 pt-12" id="contact">
+    <div class="space-content container">
+      <h2 class="text-6xl mb-12">Contact us</h2>
+      <p>
+         You may contact us at <strong><a href="mailto:ddi-hackathon-2025@civicliteraci.es">ddi-hackathon-2025@civicliteraci.es</a></strong>.
+          <br><br>
+      </p>
+      <!-- <p class="text-2xl">
+        We're a community of developers who are passionate about making the web more accessible. We're always looking
+        for new ways to improve the accessibility of the web.
+      </p>
+      <AvatarGroup display="grid" gridItemsSize="300px" gridGap="2rem">
+        <Avatar initials="RJ" title="Robert Johnson" subtitle="Manager" />
+        <Avatar initials="MT" title="Maria Torres" subtitle="Developer" />
+        <Avatar initials="AK" title="Alex Kim" subtitle="Designer" />
+        <Avatar initials="SL" title="Sarah Lee" subtitle="Content Strategist" />
+        <Avatar initials="JP" title="James Peterson" subtitle="QA Engineer" />
+        <Avatar initials="LW" title="Lisa Wong" subtitle="Product Owner" />
+        <Avatar initials="DM" title="David Martinez" subtitle="UX Researcher" />
+        <Avatar initials="EB" title="Emma Brown" subtitle="Accessibility Specialist" />
+        <Avatar initials="TC" title="Thomas Chen" subtitle="Frontend Developer" />
+      </AvatarGroup>
+    </div> -->
+  </section>
+  <CallToAction />
+</DefaultLayout>
+
+<style>
+  .avatar {
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-s);
+  }
+</style>
+
+
+
+

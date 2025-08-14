@@ -1,0 +1,74 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import SocialShares from '@components/SocialShares.astro'
+import { getCollection, render } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+
+export async function getStaticPaths() {
+  const scenarios = await getCollection('scenarios')
+
+  const scenarioImages = [
+    { src: '/scenarios/scenario-image-1.png' },
+    { src: '/scenarios/scenario-image-2.png' },
+    { src: '/scenarios/scenario-image-3.png' },
+    { src: '/scenarios/scenario-image-4.png' },
+    { src: '/scenarios/scenario-image-5.png' },
+    { src: '/scenarios/scenario-image-6.png' },
+  ]
+
+  return scenarios.map((scenario, index) => {
+    const scenarioWithImage = {
+      ...scenario,
+      featuredImage: scenarioImages[index % scenarioImages.length].src,
+    }
+
+    return {
+      params: { scenario: scenario.id },
+      props: { scenario: scenarioWithImage },
+    }
+  })
+}
+
+interface Props {
+  scenario: CollectionEntry<'scenarios'> & { featuredImage: string }
+}
+
+const { scenario } = Astro.props
+const { Content } = await render(scenario)
+
+const theme = {
+  name: scenario.data.theme,
+  image: '/scenarios/scenario-image-1.png',
+  bio: '',
+}
+---
+
+<DefaultLayout title={scenario.data.title} description={scenario.data.description} url={scenario.data.title}>
+  <PageHeader
+    title={scenario.data.title}
+    subtitle={scenario.data.description}
+    theme={theme}
+    bgType="bordered"
+    featuredImage={scenario.featuredImage}
+  />
+  <section class="my-12">
+    <div class="narrow space-content container">
+      <Content />
+    </div>
+  </section>
+  <section class="my-12">
+    <div class="narrow space-content container">
+      <h2>Share this scenario</h2>
+      <p>Like this scenario? Share it with your network!</p>
+      <SocialShares />
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss" is:global>
+  .narrow {
+    margin-inline: auto;
+    max-width: 65ch;
+  }
+</style>

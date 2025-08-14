@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets'
+// import logo from '../assets/img/logo.svg'
+import logo_ddi from '../assets/images/site/logo-ddi-only.png'
+import logo_light from '../assets/images/site/logo-ddi-two-lines-3.png'
+import logo_dark from '../assets/images/site/logo-ddi-two-lines-4.png'
+import logo from '../assets/images/site/logo-ddi-two-lines-5.png'
+
+/**
+ * Logo Component
+ *
+ * @description Logo description
+ */
+interface Props {
+  /**
+   * Whether to load the image eagerly or lazily
+   * @default 'eager'
+   */
+  loading?: 'eager' | 'lazy'
+}
+
+const { loading = 'eager' }: Props = Astro.props
+---
+
+  
+<div>
+    <a href="/" class="flex items-center gap-2 !no-underline">
+      <!-- <Image id="aaaa" src={logo} alt="" width="360" height="120" loading={loading} style="padding-right: 1rem; padding-bottom: 0.5rem" class="hidden lg:block md:hidden sm:hidden"/>
+      <Image src={logo} alt="" width="300" height="80" loading={loading} style="padding-right: 1rem; padding-bottom: 0.5rem" class="hidden lg:hidden md:block sm:hidden"/>
+      <Image src={logo} alt="" width="270" height="60" loading={loading} style="padding-right: 1rem; padding-bottom: 0.5rem" class="hidden lg:hidden md:hidden sm:block xs:hidden dark:!hidden"/>
+      <Image src={logo} alt="" width="220" height="60" loading={loading} style="padding-right: 1rem; padding-bottom: 0.5rem" class="lg:hidden md:hidden sm:hidden xs:block"/> -->
+      <Image id="aaaa" src={logo_ddi} alt="" width="80" height="80" loading={loading} style="padding-right: 1rem; padding-bottom: 0.5rem"/>
+      <span class="ddi-font lg:block hidden">Digital Democracy Initiative</span>
+      <span class="ddi-font lg:hidden block">Digital Democracy<br>Initiative</span>
+    </a>
+
+</div>
+
+
+<style lang="scss">
+  a {
+    color: var(--foreground-color);
+  }
+
+</style>

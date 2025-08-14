@@ -1,0 +1,99 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Card, Pagination } from 'accessible-astro-components'
+import { getCollection } from 'astro:content'
+import type { GetStaticPaths, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+
+// Import images directly for optimization
+import scenarioImage1 from '@assets/images/scenarios/scenario-image-1.png'
+import scenarioImage2 from '@assets/images/scenarios/scenario-image-2.png'
+import scenarioImage3 from '@assets/images/scenarios/scenario-image-3.png'
+import scenarioImage4 from '@assets/images/scenarios/scenario-image-4.png'
+import scenarioImage5 from '@assets/images/scenarios/scenario-image-5.png'
+import scenarioImage6 from '@assets/images/scenarios/scenario-image-6.png'
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const scenarios = await getCollection('scenarios')
+
+  const scenarioImages = [scenarioImage1, scenarioImage2, scenarioImage3, scenarioImage4, scenarioImage5, scenarioImage6]
+
+  const scenariosWithImages = scenarios.map((scenario, index) => {
+    return {
+      ...scenario,
+      featuredImage: scenarioImages[index % scenarioImages.length],
+    }
+  })
+
+  return paginate(scenariosWithImages, { pageSize: 6 })
+}) satisfies GetStaticPaths
+
+interface Props {
+  page: Page<CollectionEntry<'scenarios'> & { featuredImage: any }>
+}
+
+const { page } = Astro.props
+
+// Prepare pagination props
+const currentPage = page.currentPage
+const totalPages = Math.ceil(page.total / page.size)
+---
+
+<DefaultLayout
+  title="Scenarios"
+  description="Scenarios for you to find solutions for"
+>
+  <PageHeader
+    title="Scenarios"
+    subtitle=''
+    bgType="bordered"
+  />
+  <section class="my-12">
+    <div class="container">
+      <p class="text-sm"><em>Scenario {page.start + 1} through {page.end + 1} of {page.total} total scenarios</em></p>
+      <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-3">
+        {
+          page.data.map((scenario) => (
+            <li>
+              <Card
+                imageComponent={scenario.featuredImage}
+                url={'/scenarios/' + scenario.id}
+                title={scenario.data.title}
+                footer={'Theme/s: ' + scenario.data.theme}
+              >
+                {scenario.data.description}
+              </Card>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-12 grid place-content-center">
+        <Pagination
+          firstPage={page.url.prev ? '/scenarios' : null}
+          previousPage={page.url.prev ? page.url.prev : null}
+          nextPage={page.url.next ? page.url.next : null}
+          lastPage={page.url.next ? `/scenarios/${Math.ceil(page.total / page.size)}` : null}
+          currentPage={`${page.currentPage}`}
+          totalPages={`${Math.ceil(page.total / page.size)}`}
+          ariaLabel="Scenario pagination"
+        />
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss" is:global>
+  @use '../../assets/scss/base/mixins' as *;
+
+  .card {
+    h3 {
+      margin-block-end: var(--space-xs);
+      line-height: 0.75;
+    }
+
+    a {
+      @include text-decoration(transparent, var(--foreground-color), 4px, 2px);
+    }
+  }
+</style>
