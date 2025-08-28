@@ -1,6 +1,7 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import Hero from '@components/Hero.astro'
+import { Icon } from 'astro-icon/components'
 import Feature from '@components/Feature.astro'
 import Counter from '@components/Counter.astro'
 import ContentMedia from '@components/ContentMedia.astro'
@@ -60,7 +61,12 @@ import {
               Are you based in one of the following countries in Eastern Europe and Central Asia: Albania, Armenia, Bosnia and Herzegovina, Georgia, Kazakhstan, Kyrgyzstan, Kosovo, Moldova, Montenegro, North Macedonia, Serbia, Ukraine or Turkey?
               <br><br>
               <strong>This is your chance to turn your idea into action!</strong>
+              <br><br>
             </p>
+            <Notification type="error">
+            <Icon name="lucide:circle-alert" />
+              <strong>IMPORTANT:</strong> In order to be eligible for the hackathon, you need to be part of a registered civil society organization (CSO, NGO) or be endorsed/supported by one. You will be asked to show proof of your organization's (or your supporting/endorsing organization's) registration as part of the application.
+            </Notification>
           </TabsPanel>
           <TabsPanel id="panel-3" labelledby="tab-3">
             <h3>What's in it for you?</h3>
@@ -76,7 +82,7 @@ import {
             <ul>
               <li><strong>Apply by:</strong> 22nd of September 2025</li>
               <li><strong>Info session:</strong> 12th of September 2025</li>
-              <li>See the <a href="#applicant-guide">applicant guide</a>, <a href="#scenarios">scenarios</a> and <a href="#submit">application form</a>.</li>
+              <li>See the <a href="#applicant-guide">applicant guide</a>, <a href="#scenarios">scenarios</a>, review the <a href="/files/DigitalDemocracyHackathon-OpenCall.pdf" target="_blank">application form</a>, and <a href="#submit">submit your proposal</a>.</li>
             </ul>
           </TabsPanel>
         </Tabs>
@@ -315,6 +321,11 @@ import {
                 <p>
                   This call is for civil society organizations and activist teams based in one of the seven target countries from the Eastern Europe & Central Asia region: <strong>Albania, Armenia, Bosnia and Herzegovina, Georgia, Kazakhstan, Kosovo, Kyrgyzstan, Moldova, Montenegro, North Macedonia, Ukraine, and Turkey</strong>. We welcome teams with diverse skills, including developers, designers, researchers, project managers, and advocates who are passionate about using technology to strengthen democracy.
                 </p>
+                <br>
+                <Notification type="error">
+                <Icon name="lucide:circle-alert" />
+                  <strong>IMPORTANT:</strong> In order to be eligible for the hackathon, you need to be part of a registered civil society organization (CSO, NGO) or be endorsed/supported by one. You will be asked to show proof of your organization's (or your supporting/endorsing organization's) registration as part of the application.
+                </Notification>
               </AccordionItem>
               <AccordionItem title="Can I apply as a group or only as an individual?">
                 <p>
